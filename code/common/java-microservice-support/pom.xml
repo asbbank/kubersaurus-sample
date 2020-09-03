@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.kubersarus.parent</groupId>
+    <artifactId>project-parent</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+
+  <groupId>>org.kubersarus.common</groupId>
+  <artifactId>java-microservice-support</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>java-microservice-support</name>
+  <description>java-microservice-support</description>
+
+  <dependencies>
+    <!-- https://mvnrepository.com/artifact/cd.connect.common/connect-prometheus-jersey -->
+    <dependency>
+      <groupId>cd.connect.common</groupId>
+      <artifactId>connect-prometheus-jersey</artifactId>
+      <version>2.2</version>
+    </dependency>
+    <!-- The client -->
+    <dependency>
+      <groupId>io.prometheus</groupId>
+      <artifactId>simpleclient</artifactId>
+      <version>0.8.0</version>
+    </dependency>
+    <!-- Hotspot JVM metrics-->
+    <dependency>
+      <groupId>io.prometheus</groupId>
+      <artifactId>simpleclient_hotspot</artifactId>
+      <version>0.8.0</version>
+    </dependency>
+    <dependency>
+      <groupId>javax.ws.rs</groupId>
+      <artifactId>javax.ws.rs-api</artifactId>
+      <version>[2.1.1]</version>
+      <scope>provided</scope>
+    </dependency>
+    <!-- Exposition HTTPServer-->
+    <dependency>
+      <groupId>io.prometheus</groupId>
+      <artifactId>simpleclient_httpserver</artifactId>
+      <version>0.8.0</version>
+    </dependency>
+    <!-- Pushgateway exposition-->
+    <dependency>
+      <groupId>io.prometheus</groupId>
+      <artifactId>simpleclient_pushgateway</artifactId>
+      <version>0.8.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-jersey-server</artifactId>
+      <version>[${release.version}]</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-jersey-media</artifactId>
+      <version>[${release.version}]</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-logging</artifactId>
+      <version>[${release.version}]</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-jersey-test</artifactId>
+      <version>[${release.version}]</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-spock-test</artifactId>
+      <version>[${release.version}]</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-jersey-netty</artifactId>
+      <version>[${release.version}]</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.kubersarus.composite</groupId>
+      <artifactId>composite-jdk11</artifactId>
+      <version>[${release.version}]</version>
+      <scope>test</scope>
+    </dependency>
+
+
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.repaint.maven</groupId>
+        <artifactId>tiles-maven-plugin</artifactId>
+        <version>2.15</version>
+        <extensions>true</extensions>
+        <configuration>
+          <filtering>false</filtering>
+          <tiles>
+            <tile>org.kubersarus.tiles:tile-groovy-test:[1.3,2)</tile>
+            <tile>org.kubersarus.tiles:tile-java11:[1.5,2)</tile>
+          </tiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
