@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.kubersarus.parent</groupId>
+    <artifactId>project-parent</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+
+  <groupId>>org.kubersarus.common</groupId>
+  <artifactId>dotnet-microservice-support</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>Dotnet microservice support</name>
+  <packaging>jar</packaging>
+
+
+  <properties>
+    <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
+    <library.version>1.0.1</library.version>
+    <build.timestamp>${maven.build.timestamp}</build.timestamp>
+    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+  </properties>
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.9.1</version>
+        <executions>
+          <execution>
+            <id>timestamp-property</id>
+            <goals>
+              <goal>timestamp-property</goal>
+            </goals>
+            <configuration>
+              <name>timestamp</name>
+              <pattern>yyyyMMddHHmmss</pattern>
+              <timeZone>Pacific/Auckland</timeZone>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+
+        <executions>
+          <execution>
+            <id>dotnet-build</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>dotnet</executable>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <arguments>
+                <argument>build</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>dotnet-pack</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>dotnet</executable>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <arguments>
+                <argument>pack</argument>
+                <argument>-c</argument>
+                <argument>release</argument>
+                <argument>/p:Version=${library.version}-v${timestamp}</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>dotnet-nuget-push</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>dotnet</executable>
+              <workingDirectory>${project.basedir}</workingDirectory>
+              <arguments>
+                <argument>nuget</argument>
+                <argument>push</argument>
+                <argument>-s</argument>
+                <argument>http://localhost:5555/v3/index.json</argument>
+                <argument>bin/release/${artifactId}.${library.version}-v${timestamp}.nupkg</argument>
+              </arguments>
+            </configuration>
+          </execution>
+
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+
+</project>
