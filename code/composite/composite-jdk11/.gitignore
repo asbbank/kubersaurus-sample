@@ -1,0 +1,24 @@
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# complie class
+target/
+*.class
+
+# ide settings
+.idea/
+.projects
+.DS_Store
+*.iml
+.settings/
+
+# others
+logs/
+log/
+*.log
+
+# release
+release.properties
+pom.xml.releaseBackup
