@@ -76,12 +76,6 @@
     </dependency>
     <dependency>
       <groupId>org.kubersaurus.composite</groupId>
-      <artifactId>composite-jersey-test</artifactId>
-      <version>[${release.version}]</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-spock-test</artifactId>
       <version>[${release.version}]</version>
       <scope>test</scope>
@@ -113,8 +107,8 @@
         <configuration>
           <filtering>false</filtering>
           <tiles>
-            <tile>org.kubersaurus.tiles:tile-groovy-test:[1.3,2)</tile>
-            <tile>org.kubersaurus.tiles:tile-java11:[1.5,2)</tile>
+            <tile>org.kubersaurus.tiles:tile-groovy-test:[1,2)</tile>
+            <tile>org.kubersaurus.tiles:tile-java11:[1,2)</tile>
           </tiles>
         </configuration>
       </plugin>
