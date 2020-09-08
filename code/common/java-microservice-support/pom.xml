@@ -4,13 +4,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.kubersarus.parent</groupId>
+    <groupId>org.kubersaurus.parent</groupId>
     <artifactId>project-parent</artifactId>
     <version>1.1-SNAPSHOT</version>
     <relativePath>../../parent</relativePath>
   </parent>
 
-  <groupId>org.kubersarus.common</groupId>
+  <groupId>org.kubersaurus.common</groupId>
   <artifactId>java-microservice-support</artifactId>
   <version>1.1-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -57,43 +57,43 @@
     </dependency>
 
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-jersey-server</artifactId>
       <version>[${release.version}]</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-jersey-media</artifactId>
       <version>[${release.version}]</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-logging</artifactId>
       <version>[${release.version}]</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-jersey-test</artifactId>
       <version>[${release.version}]</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-spock-test</artifactId>
       <version>[${release.version}]</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-jersey-netty</artifactId>
       <version>[${release.version}]</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-jdk11</artifactId>
       <version>[${release.version}]</version>
       <scope>test</scope>
@@ -113,8 +113,8 @@
         <configuration>
           <filtering>false</filtering>
           <tiles>
-            <tile>org.kubersarus.tiles:tile-groovy-test:[1.3,2)</tile>
-            <tile>org.kubersarus.tiles:tile-java11:[1.5,2)</tile>
+            <tile>org.kubersaurus.tiles:tile-groovy-test:[1.3,2)</tile>
+            <tile>org.kubersaurus.tiles:tile-java11:[1.5,2)</tile>
           </tiles>
         </configuration>
       </plugin>

@@ -3,13 +3,13 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.kubersarus.parent</groupId>
+    <groupId>org.kubersaurus.parent</groupId>
     <artifactId>project-parent</artifactId>
     <version>1.1-SNAPSHOT</version>
     <relativePath>../../parent</relativePath>
   </parent>
 
-  <groupId>org.kubersarus.composite</groupId>
+  <groupId>org.kubersaurus.composite</groupId>
   <artifactId>composite-spock-test</artifactId>
   <version>1.1-SNAPSHOT</version>
   <name>composite-spock-test</name>
@@ -18,12 +18,12 @@
 
   <dependencies>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-unit-test</artifactId>
       <version>[${release.version}]</version>
     </dependency>
     <dependency>
-      <groupId>org.kubersarus.composite</groupId>
+      <groupId>org.kubersaurus.composite</groupId>
       <artifactId>composite-groovy</artifactId>
       <version>[${release.version}]</version>
     </dependency>
