@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <properties>
+    <openapi-codegen-maven-plugin.version>4.3.1</openapi-codegen-maven-plugin.version>
+    <connect-openapi-jersey2.version>5.2</connect-openapi-jersey2.version>
+
+    <openapi.inputSpec>${project.basedir}/src/main/resources/openapi.yaml</openapi.inputSpec>
+    <openapi.output>${project.build.directory}/generated-sources/openapi</openapi.output>
+    <openapi.apiPackage>${project.groupId}</openapi.apiPackage>
+    <openapi.modelPackage>${project.groupId}.model</openapi.modelPackage>
+    <openapi.source.directory.java>${openapi.output}/src/gen/java</openapi.source.directory.java>
+    <openapi.source.directory.csharp>${openapi.output}/src/gen/csharp</openapi.source.directory.csharp>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.openapitools</groupId>
+        <artifactId>openapi-generator-maven-plugin</artifactId>
+        <version>${openapi-codegen-maven-plugin.version}</version>
+        <dependencies>
+          <dependency>
+            <groupId>cd.connect.openapi</groupId>
+            <artifactId>connect-openapi-jersey2</artifactId>
+            <version>${connect-openapi-jersey2.version}</version>
+          </dependency>
+          <dependency>
+            <groupId>com.darthShana.maven</groupId>
+            <artifactId>openapi-netcore-generator</artifactId>
+            <version>1.1-SNAPSHOT</version>
+          </dependency>
+        </dependencies>
+        <executions>
+          <execution>
+            <id>generate-java</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <output>${openapi.output}</output>
+              <apiPackage>${openapi.apiPackage}</apiPackage>
+              <modelPackage>${openapi.modelPackage}</modelPackage>
+              <inputSpec>${openapi.inputSpec}</inputSpec>
+              <generatorName>jersey2-api</generatorName>
+              <enablePostProcessFile>true</enablePostProcessFile>
+              <additionalProperties>
+                <additionalProperty>server</additionalProperty>
+                <additionalProperty>client</additionalProperty>
+              </additionalProperties>
+            </configuration>
+          </execution>
+          <execution>
+            <id>generate-netcore</id>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <generatorName>csharp-netcore-enhanced</generatorName>
+              <inputSpec>${openapi.inputSpec}</inputSpec>
+              <configOptions>
+                <targetFramework>netcoreapp3.1</targetFramework>
+                <output>${openapi.output}</output>
+                <packageVersion>1.0.1.0</packageVersion>
+                <sourceFolder>src/gen/csharp</sourceFolder>
+                <packageName>${openapi.apiPackage}</packageName>
+                <excludeTests>true</excludeTests>
+              </configOptions>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>3.0.0</version>
+        <executions>
+          <execution>
+            <phase>generate-sources</phase>
+            <goals>
+              <goal>add-source</goal>
+            </goals>
+            <configuration>
+              <sources>
+                <source>${openapi.source.directory.java}</source>
+              </sources>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+</project>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <properties>
+    <release.manifest.baseImageName>${docker.image.name}</release.manifest.baseImageName>
+    <release.manifest.fullImageName>${docker.image.name}:${docker.image.tag}</release.manifest.fullImageName>
+  </properties>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>cd.connect.pipeline</groupId>
+        <artifactId>docker-manifest-collectosaur-plugin</artifactId>
+        <version>1.2</version>
+        <executions>
+          <execution>
+            <id>babysaur</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>babysaur</goal>
+            </goals>
+            <configuration>
+              <baseImageName>${docker.image.name}</baseImageName>
+              <fullImageName>${docker.image.name}:${docker.image.tag}</fullImageName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

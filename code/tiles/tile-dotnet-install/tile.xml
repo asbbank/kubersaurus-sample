@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+  <properties>
+    <exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
+    <dotnet.generated.base.directory>${openapi.output}/src/gen/csharp</dotnet.generated.base.directory>
+    <build.timestamp>${maven.build.timestamp}</build.timestamp>
+    <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>build-helper-maven-plugin</artifactId>
+        <version>1.9.1</version>
+        <executions>
+          <execution>
+            <id>timestamp-property</id>
+            <goals>
+              <goal>timestamp-property</goal>
+            </goals>
+            <configuration>
+              <name>timestamp</name>
+              <pattern>yyyyMMddHHmmss</pattern>
+              <timeZone>Pacific/Auckland</timeZone>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>exec-maven-plugin</artifactId>
+        <version>${exec-maven-plugin.version}</version>
+
+        <executions>
+          <execution>
+            <id>dotnet-build</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>dotnet</executable>
+              <workingDirectory>${dotnet.generated.base.directory}/${openapi.apiPackage}</workingDirectory>
+              <arguments>
+                <argument>build</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>dotnet-pack</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>dotnet</executable>
+              <workingDirectory>${dotnet.generated.base.directory}/${openapi.apiPackage}</workingDirectory>
+              <arguments>
+                <argument>pack</argument>
+                <argument>-c</argument>
+                <argument>release</argument>
+                <argument>/p:Version=1.0.1-v${timestamp}</argument>
+              </arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>dotnet-nuget-push</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>exec</goal>
+            </goals>
+            <configuration>
+              <executable>dotnet</executable>
+              <workingDirectory>${dotnet.generated.base.directory}/${openapi.apiPackage}</workingDirectory>
+              <arguments>
+                <argument>nuget</argument>
+                <argument>push</argument>
+                <argument>-s</argument>
+                <argument>http://localhost:5555/v3/index.json</argument>
+                <argument>bin/release/${openapi.apiPackage}.1.0.1-v${timestamp}.nupkg</argument>
+              </arguments>
+            </configuration>
+          </execution>
+
+        </executions>
+      </plugin>
+
+
+
+    </plugins>
+  </build>
+
+
+</project>
