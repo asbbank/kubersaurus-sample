@@ -1,4 +1,4 @@
-package org.kubersaurus;
+package org.kubersaurus.common;
 
 import cd.connect.logging.JsonLogEnhancer;
 import io.prometheus.client.Counter;

@@ -1,4 +1,4 @@
-package org.kubersaurus.error;
+package org.kubersaurus.common.error;
 
 
 import javax.ws.rs.core.Response;

@@ -1,4 +1,4 @@
-package org.kubersaurus.filter
+package org.kubersaurus.common.filter
 
 import org.glassfish.jersey.internal.util.collection.MultivaluedStringMap
 import spock.lang.Shared

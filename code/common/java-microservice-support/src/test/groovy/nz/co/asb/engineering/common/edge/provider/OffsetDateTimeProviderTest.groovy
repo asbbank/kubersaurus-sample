@@ -1,4 +1,4 @@
-package org.kubersaurus.provider
+package org.kubersaurus.common.provider
 
 
 import spock.lang.Specification

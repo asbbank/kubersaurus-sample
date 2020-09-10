@@ -1,4 +1,4 @@
-package org.kubersaurus.provider;
+package org.kubersaurus.common.provider;
 
 import javax.ws.rs.ext.ParamConverter;
 import javax.ws.rs.ext.ParamConverterProvider;

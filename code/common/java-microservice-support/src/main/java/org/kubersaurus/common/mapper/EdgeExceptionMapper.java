@@ -1,7 +1,7 @@
-package org.kubersaurus.mapper;
+package org.kubersaurus.common.mapper;
 
 
-import org.kubersaurus.error.EdgeException;
+import org.kubersaurus.common.error.EdgeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

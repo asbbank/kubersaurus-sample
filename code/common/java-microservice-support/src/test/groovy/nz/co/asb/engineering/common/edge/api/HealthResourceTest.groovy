@@ -1,4 +1,4 @@
-package org.kubersaurus.api
+package org.kubersaurus.common.api
 
 
 import org.glassfish.jersey.server.ResourceConfig

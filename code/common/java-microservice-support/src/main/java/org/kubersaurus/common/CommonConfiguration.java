@@ -1,13 +1,13 @@
-package org.kubersaurus;
+package org.kubersaurus.common;
 
 import cd.connect.jersey.common.JacksonContextProvider;
 import cd.connect.jersey.common.JerseyExceptionMapper;
 import cd.connect.jersey.common.JerseyPrometheusResource;
 import cd.connect.jersey.prometheus.PrometheusDynamicFeature;
-import org.kubersaurus.api.HealthResource;
-import org.kubersaurus.client.filter.EmptyClientPostMutation;
-import org.kubersaurus.filter.OpenTracingHeaderFilter;
-import org.kubersaurus.mapper.EdgeExceptionMapper;
+import org.kubersaurus.common.api.HealthResource;
+import org.kubersaurus.common.client.filter.EmptyClientPostMutation;
+import org.kubersaurus.common.filter.OpenTracingHeaderFilter;
+import org.kubersaurus.common.mapper.EdgeExceptionMapper;
 import org.glassfish.jersey.CommonProperties;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.logging.JerseyClientLogger;

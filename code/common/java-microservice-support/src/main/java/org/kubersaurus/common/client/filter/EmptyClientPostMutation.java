@@ -1,4 +1,4 @@
-package org.kubersaurus.client.filter;
+package org.kubersaurus.common.client.filter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
