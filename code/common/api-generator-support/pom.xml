@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.kubersaurus.parent</groupId>
+    <artifactId>project-parent</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+
+  <groupId>org.kubersaurus.common</groupId>
+  <artifactId>api-generator-support</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+  <name>api-generator-support</name>
+  <description>support classes for openapi v3 generator</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.kubersaurus.composite</groupId>
+      <artifactId>composite-jackson</artifactId>
+      <version>[${release.version}]</version>
+    </dependency>
+
+    <dependency>
+      <groupId>cd.connect.composites.java</groupId>
+      <artifactId>connect-composite-jersey</artifactId>
+      <version>[1.1,2)</version>
+      <scope>provided</scope>
+      <exclusions>
+        <exclusion>
+          <groupId>cd.connect.composites.java</groupId>
+          <artifactId>connect-composite-jackson</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>com.google.guava</groupId>
+          <artifactId>guava</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>org.yaml</groupId>
+          <artifactId>snakeyaml</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>[28.0-jre]</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>cd.connect.composites.java</groupId>
+      <artifactId>connect-composite-test</artifactId>
+      <version>[1.1,2)</version>
+      <scope>test</scope>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>io.repaint.maven</groupId>
+        <artifactId>tiles-maven-plugin</artifactId>
+        <version>${tiles-maven-plugin.version}</version>
+        <extensions>true</extensions>
+        <configuration>
+          <filtering>false</filtering>
+          <tiles>
+            <tile>nz.co.asb.engineering.tiles:tile-java11:[1.5,2)</tile>
+          </tiles>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
