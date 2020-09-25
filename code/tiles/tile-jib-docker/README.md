@@ -11,7 +11,7 @@ A tile based on `jib-maven-plugin` to build the docker image.
 <properties>
   <!-- default -->
   <docker.image.from>openjdk:11.0.3-jdk-slim-stretch</docker.image.from.image>
-  <docker.image.to>asbengagement/${project.artifactId}:${project.version}</docker.image.to>
+  <docker.image.to>{{organisation}}/${project.artifactId}:${project.version}</docker.image.to>
   <docker.image.port>8080</docker.image.port>
 </properties>
 
@@ -27,7 +27,7 @@ A tile based on `jib-maven-plugin` to build the docker image.
         <configuration>
           <filtering>false</filtering>
           <tiles>
-            <tile>nz.co.asb.engineering.tiles:jib-docker-tile:[1,2)</tile>
+            <tile>org.kubersaurus:jib-docker-tile:[1,2)</tile>
           </tiles>
         </configuration>
     </plugin>

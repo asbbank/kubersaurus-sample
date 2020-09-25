@@ -70,7 +70,7 @@
         <configuration>
           <filtering>false</filtering>
           <tiles>
-            <tile>nz.co.asb.engineering.tiles:tile-java11:[1.5,2)</tile>
+            <tile>org.kubersaurus.tiles:tile-java11:[1.5,2)</tile>
           </tiles>
         </configuration>
       </plugin>

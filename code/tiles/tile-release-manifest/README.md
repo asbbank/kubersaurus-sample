@@ -15,7 +15,7 @@
         <configuration>
           <filtering>false</filtering>
           <tiles>
-            <tile>nz.co.asb.engineering.tiles:tile-release-manifest:[1,2)</tile>
+            <tile>org.kubersaurus.tiles:tile-release-manifest:[1,2)</tile>
           </tiles>
         </configuration>
     </plugin>

@@ -15,7 +15,6 @@
   <name>composite-jackson</name>
   <packaging>jar</packaging>
   <description>composite-jackson</description>
-  <url>https://bitbucket.org/asb_engagement/asb-java-tools/src/master/composite/composite-jackson/</url>
 
   <properties>
     <jackson.version>2.10.0</jackson.version>

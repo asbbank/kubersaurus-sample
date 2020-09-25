@@ -15,7 +15,6 @@
   <name>composite-jersey-netty</name>
   <packaging>jar</packaging>
   <description>composite-jersey-netty</description>
-  <url>https://bitbucket.org/asb_engagement/asb-java-tools/src/master/composite/composite-jersey-netty/</url>
 
   <dependencies>
     <dependency>
