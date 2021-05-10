@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.kubersaurus.parent</groupId>
+    <artifactId>project-parent</artifactId>
+    <version>1.1-SNAPSHOT</version>
+    <relativePath>../../parent</relativePath>
+  </parent>
+
+  <groupId>org.kubersaurus.composite</groupId>
+  <artifactId>composite-ebean</artifactId>
+  <version>1.1-SNAPSHOT</version>
+  <name>composite-ebean</name>
+  <packaging>jar</packaging>
+  <description>composite-ebean</description>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.postgresql</groupId>
+      <artifactId>postgresql</artifactId>
+      <version>42.2.18</version>
+    </dependency>
+    <dependency>
+      <groupId>io.ebean</groupId>
+      <artifactId>ebean-datasource</artifactId>
+      <version>7.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.ebean</groupId>
+      <artifactId>ebean-migration</artifactId>
+      <version>12.2.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.ebean</groupId>
+      <artifactId>ebean-core</artifactId>
+      <version>${ebean.version}</version>
+    </dependency>
+
+    <!-- support for query beans -->
+    <dependency>
+      <groupId>io.ebean</groupId>
+      <artifactId>ebean-querybean</artifactId>
+      <version>${ebean.version}</version>
+    </dependency>
+
+    <!-- java annotation processor to generate query beans -->
+    <dependency>
+      <groupId>io.ebean</groupId>
+      <artifactId>querybean-generator</artifactId>
+      <version>${ebean.version}</version>
+    </dependency>
+
+
+  </dependencies>
+</project>
